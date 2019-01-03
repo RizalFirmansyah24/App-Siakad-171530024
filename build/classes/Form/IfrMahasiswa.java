@@ -1,4 +1,4 @@
-package Form;
+8package Form;
 
 import Tool.KoneksiDB;
 import java.awt.Dimension;
@@ -125,7 +125,8 @@ public class IfrMahasiswa extends javax.swing.JInternalFrame {
             _Cnn = null;
             _Cnn = getCnn.getConnection();
             clearTabelMahasiswa();
-            sqlselect = "select * from tbmahasiswa a, tbprodi b " + " where a.kd_prodi=b.kd_prodi order by a.kd_prodi, a.nama_mhs asc ";
+            sqlselect = "select * from tbmahasiswa a, tbprodi b " 
+                    + " where a.kd_prodi=b.kd_prodi order by a.kd_prodi, a.nama_mhs asc ";
             Statement stat = _Cnn.createStatement();
             ResultSet res = stat.executeQuery(sqlselect);
             while(res.next()){
@@ -251,7 +252,8 @@ public class IfrMahasiswa extends javax.swing.JInternalFrame {
         try{
             _Cnn = null;
             _Cnn = getCnn.getConnection();  
-            sqlselect = "select kd_prodi, prodi" + " from tbprodi order by kd_jur asc";
+            sqlselect = "select kd_prodi, prodi" 
+                    + " from tbprodi order by kd_jur asc";
             Statement stat = _Cnn.createStatement();
             ResultSet res = stat.executeQuery(sqlselect);
             CmbProdi.removeAllItems();
@@ -269,7 +271,8 @@ public class IfrMahasiswa extends javax.swing.JInternalFrame {
                 res.next();
             }
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(this, "Error Method listProdi() : " +ex, "Informasi", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error Method listProdi() : " 
+            +ex, "Informasi", JOptionPane.INFORMATION_MESSAGE);
         }
     }
     
@@ -424,13 +427,16 @@ public class IfrMahasiswa extends javax.swing.JInternalFrame {
             try{
                 _Cnn = null;
                 _Cnn = getCnn.getConnection();
-                sqldelete = "delete from tbmahasiswa " + " where nim='"+vnim+"' ";
+                sqldelete = "delete from tbmahasiswa " 
+                        + " where nim='"+vnim+"' ";
                 Statement stat = _Cnn.createStatement();
                 stat.executeUpdate(sqldelete);
-                JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus", "Ibformasi", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus", 
+                        "Ibformasi", JOptionPane.INFORMATION_MESSAGE);
                 clearInput(); showDataMahasiswa();
             }catch(SQLException ex){
-                JOptionPane.showMessageDialog(this, "Error Method Aksihapus() : "+ex, "Informasi", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error Method Aksihapus() : "+ex, 
+                        "Informasi", JOptionPane.INFORMATION_MESSAGE);
             }
     }
     
@@ -522,7 +528,6 @@ public class IfrMahasiswa extends javax.swing.JInternalFrame {
         lbRecord = new javax.swing.JLabel();
 
         jdInputMahasiswa.setTitle(".: Form Entry Mahasiswa");
-        jdInputMahasiswa.setPreferredSize(new java.awt.Dimension(570, 560));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/logo.png"))); // NOI18N
 
@@ -658,7 +663,7 @@ public class IfrMahasiswa extends javax.swing.JInternalFrame {
                                 .addGap(53, 53, 53)
                                 .addComponent(cmbAgama, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 4, Short.MAX_VALUE))
+                                .addComponent(jSeparator1))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtNamaMhs)
